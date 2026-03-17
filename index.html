@@ -3,369 +3,408 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CU MainWerk</title>
-  <meta name="description" content="CU MainWerk – Dienstleistungen in Goldbach. Montage, Service und individuelle Lösungen.">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f5f5;
-      color: #111;
-      line-height: 1.6;
-    }
-
-    .container {
-      width: min(1100px, 92%);
-      margin: 0 auto;
-    }
-
-    header {
-      background: #111;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 0;
-      gap: 20px;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .nav-logo {
-      height: 54px;
-      width: auto;
-      display: block;
-    }
-
-    .nav-title {
-      color: #fff;
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: #e5e5e5;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a:hover {
-      color: #fff;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-      color: #fff;
-      padding: 70px 0 60px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      margin-bottom: 16px;
-      line-height: 1.1;
-    }
-
-    .hero p {
-      color: #ddd;
-      font-size: 1.05rem;
-      margin-bottom: 24px;
-      max-width: 620px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: #fff;
-      color: #111;
-    }
-
-    .btn-primary:hover {
-      background: #ddd;
-    }
-
-    .btn-secondary {
-      border: 1px solid #888;
-      color: #fff;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.08);
-    }
-
-    .hero-image-box {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 18px;
-      padding: 24px;
-      text-align: center;
-    }
-
-    .hero-logo {
-      max-width: 100%;
-      height: auto;
-      max-height: 320px;
-      object-fit: contain;
-    }
-
-    section {
-      padding: 70px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 34px;
-    }
-
-    .section-title h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: #555;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .contact-card,
-    .legal-box {
-      background: #fff;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-    }
-
-    .contact-card h3,
-    .legal-box h2,
-    .legal-box h3 {
-      margin-bottom: 12px;
-    }
-
-    .contact-card p,
-    .legal-box p {
-      margin-bottom: 10px;
-    }
-
-    .contact-card a,
-    .legal-box a {
-      color: #111;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    footer {
-      background: #111;
-      color: #ddd;
-      padding: 24px 0;
-      margin-top: 50px;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: #ddd;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      color: #fff;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .cards,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        gap: 12px;
-      }
-
-      .nav-logo {
-        height: 46px;
-      }
-    }
-  </style>
+  <title>CU MainWerk | Innenausbau, Montage & Bauunterstützung</title>
+  <meta name="description" content="CU MainWerk – Ihr zuverlässiger Partner für Innenausbau, Trockenbau, Bodenbeläge, Fenster, Montagearbeiten, Kabelverlegung und Bauunterstützung im Großraum Aschaffenburg.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header>
     <div class="container nav">
-      <div class="nav-left">
-       <img src="images/logotp.png" alt="CU MainWerk Logo" class="nav-logo">
-        <div class="nav-title">CU MainWerk</div>
+      <div class="brand">
+        <img src="images/logotp.png" alt="CU MainWerk Logo" class="brand-logo">
+        <div class="brand-text">
+          <strong>CU MainWerk</strong>
+          <span>Innenausbau · Montage · Bauunterstützung</span>
+        </div>
       </div>
 
-      <nav class="nav-links">
+      <nav class="desktop-nav">
         <a href="#start">Start</a>
+        <a href="#ueber-uns">Über uns</a>
         <a href="#leistungen">Leistungen</a>
+        <a href="#projekte">Projekte</a>
         <a href="#kontakt">Kontakt</a>
         <a href="#impressum">Impressum</a>
         <a href="#datenschutz">Datenschutz</a>
       </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menü öffnen">☰</button>
+    </div>
+
+    <div class="container mobile-menu" id="mobileMenu">
+      <div class="menu-box">
+        <a href="#start">Start</a>
+        <a href="#ueber-uns">Über uns</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#projekte">Projekte</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#impressum">Impressum</a>
+        <a href="#datenschutz">Datenschutz</a>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero" id="start">
       <div class="container hero-grid">
-        <div>
-          <h1>Dienstleistungen mit Qualität und Handschlag-Mentalität</h1>
+        <div class="reveal">
+          <div class="eyebrow">Ihr zuverlässiger Partner im Großraum Aschaffenburg</div>
+          <h1>Innenausbau, Montage und Bauunterstützung aus einer Hand</h1>
           <p>
-            CU MainWerk steht für saubere Arbeit, direkte Kommunikation und zuverlässige Umsetzung.
-            Wir begleiten private und gewerbliche Kunden mit praxisnahen Lösungen.
+            CU MainWerk ist Ihr zuverlässiger Partner für den gesamten Innenausbau –
+            von Trockenbau über Bodenbeläge bis hin zu Fenstern, Montagearbeiten und vielem mehr.
+            Wir stehen für saubere Arbeit, direkte Kommunikation und starke Ergebnisse.
           </p>
 
-          <div class="hero-buttons">
-            <a class="btn btn-primary" href="#kontakt">Jetzt anfragen</a>
-            <a class="btn btn-secondary" href="#leistungen">Leistungen ansehen</a>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#kontakt">Projekt anfragen</a>
+            <a class="btn btn-secondary" href="#projekte">Beispielprojekte ansehen</a>
+          </div>
+
+          <div class="hero-points">
+            <span>Trockenbau & Innenausbau</span>
+            <span>Bodenbeläge</span>
+            <span>Fenster & Bauelemente</span>
+            <span>Kabel- & Leerrohrverlegung</span>
           </div>
         </div>
 
-        <div class="hero-image-box">
-          <img src="logo-cu-mainwerk.png" alt="CU MainWerk" class="hero-logo">
+        <div class="hero-card reveal">
+          <img src="images/logotp.png" alt="CU MainWerk" class="hero-logo">
+          <div class="hero-badges">
+            <div class="mini-stat">
+              <strong>50 km</strong>
+              <span>Einsatzradius rund um Aschaffenburg</span>
+            </div>
+            <div class="mini-stat">
+              <strong>Vielseitig</strong>
+              <span>Innenausbau, Montage & Bauunterstützung</span>
+            </div>
+            <div class="mini-stat">
+              <strong>Praxisnah</strong>
+              <span>Mit Erfahrung aus verschiedenen Gewerken</span>
+            </div>
+            <div class="mini-stat">
+              <strong>Sauber</strong>
+              <span>Zuverlässig, ordentlich und kundenorientiert</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="leistungen">
+    <section class="section" id="ueber-uns">
       <div class="container">
-        <div class="section-title">
-          <h2>Unsere Leistungen</h2>
-          <p>Beispiele für die Bereiche, in denen CU MainWerk tätig ist.</p>
+        <div class="section-title reveal">
+          <h2>Warum CU MainWerk?</h2>
+          <p>
+            Wir verbinden praktische Erfahrung, vielseitige Einsatzbereiche und eine saubere Arbeitsweise
+            zu einer starken Lösung für private und gewerbliche Kunden.
+          </p>
         </div>
 
-        <div class="cards">
-          <div class="card">
-            <h3>Montage</h3>
-            <p>Saubere und fachgerechte Montagearbeiten mit zuverlässiger Ausführung.</p>
+        <div class="feature-grid">
+          <div class="feature-card reveal">
+            <div class="feature-icon">🛠️</div>
+            <h3>Berufserfahrung</h3>
+            <p>
+              Gemeinsam verfügen wir über mehrere Jahre praktische Berufserfahrung in den Bereichen
+              Innenausbau, Montage, Elektro-Bauunterstützung und allgemeine Bauarbeiten.
+            </p>
           </div>
 
-          <div class="card">
-            <h3>Service</h3>
-            <p>Schnelle Unterstützung, direkte Kommunikation und praxisnahe Lösungen.</p>
+          <div class="feature-card reveal">
+            <div class="feature-icon">📚</div>
+            <h3>Schulungen & Entwicklung</h3>
+            <p>
+              Durch verschiedene Schulungen bleiben wir fachlich auf dem neuesten Stand,
+              sind offen für Neues und entwickeln uns kontinuierlich weiter.
+            </p>
           </div>
 
-          <div class="card">
-            <h3>Individuelle Projekte</h3>
-            <p>Passende Leistungen für private und gewerbliche Kunden nach Bedarf.</p>
+          <div class="feature-card reveal">
+            <div class="feature-icon">🤝</div>
+            <h3>Arbeitsphilosophie</h3>
+            <p>
+              Zuverlässig, sauber und kundenorientiert. Wir denken mit, arbeiten lösungsorientiert
+              und liefern starke Ergebnisse zu fairen Preisen.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="kontakt">
+    <section class="section" id="leistungen">
       <div class="container">
-        <div class="section-title">
-          <h2>Kontakt</h2>
+        <div class="section-title reveal">
+          <h2>Leistungen & Einsatzbereiche</h2>
+          <p>
+            Unser Schwerpunkt liegt auf vielseitigen Arbeiten im Innenausbau, in der Montage
+            und in baunahen Unterstützungsleistungen.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <h3>Innenausbau & Renovierung</h3>
+            <p>
+              Von Trockenbau über Bodenbeläge bis hin zu Modernisierungs- und Renovierungsarbeiten:
+              Wir unterstützen Sie zuverlässig bei der Umsetzung Ihrer Räume.
+            </p>
+            <div class="service-tags">
+              <span class="tag">Trockenbau</span>
+              <span class="tag">Innenausbau</span>
+              <span class="tag">Bodenbeläge</span>
+              <span class="tag">Modernisierung</span>
+            </div>
+          </div>
+
+          <div class="service-card reveal">
+            <h3>Montage von Bauelementen</h3>
+            <p>
+              Wir übernehmen Montagearbeiten an verschiedenen Bauelementen wie Fenstern, Türen,
+              Toren und weiteren Komponenten im Aus- und Umbau.
+            </p>
+            <div class="service-tags">
+              <span class="tag">Fenster</span>
+              <span class="tag">Türen</span>
+              <span class="tag">Tore</span>
+              <span class="tag">Montage</span>
+            </div>
+          </div>
+
+          <div class="service-card reveal">
+            <h3>Leitungs- & Kabelvorbereitung</h3>
+            <p>
+              Im Rahmen von Bau- und Ausbauarbeiten unterstützen wir bei der Kabelverlegung,
+              Leerrohrverlegung und vorbereitenden Arbeiten für Smart-Home-Installationen.
+            </p>
+            <div class="service-tags">
+              <span class="tag">Kabelverlegung</span>
+              <span class="tag">Leerrohre</span>
+              <span class="tag">Smart-Home-Vorbereitung</span>
+              <span class="tag">Bauunterstützung</span>
+            </div>
+          </div>
+
+          <div class="service-card reveal">
+            <h3>Außenanlagen & Bauunterstützung</h3>
+            <p>
+              Darüber hinaus unterstützen wir bei Garten- und Erdarbeiten, Pflasterarbeiten
+              sowie allgemeinen Hilfs- und Unterstützungsarbeiten im Tiefbauumfeld.
+            </p>
+            <div class="service-tags">
+              <span class="tag">Erdarbeiten</span>
+              <span class="tag">Pflasterarbeiten</span>
+              <span class="tag">Tiefbauunterstützung</span>
+              <span class="tag">Außenbereich</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projekte">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>Beispielprojekte</h2>
+          <p>
+            Hier können Sie sich einen Eindruck von typischen Arbeitsbereichen und Projektarten verschaffen.
+          </p>
+        </div>
+
+        <div class="project-controls reveal">
+          <button class="filter-btn active" data-filter="alle">Alle</button>
+          <button class="filter-btn" data-filter="innenausbau">Innenausbau</button>
+          <button class="filter-btn" data-filter="montage">Montage</button>
+          <button class="filter-btn" data-filter="bau">Bauunterstützung</button>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal" data-category="innenausbau">
+            <div class="project-image">
+              <img src="images/projekt-1.jpg" alt="Beispielprojekt Innenausbau">
+            </div>
+            <div class="project-body">
+              <h3>Trockenbau & Raumstruktur</h3>
+              <p>Beispiel für vorbereitende und ausführende Arbeiten im Innenausbau mit Fokus auf saubere Umsetzung.</p>
+              <div class="project-meta">
+                <span>Bereich: Innenausbau</span>
+                <span>Beispielprojekt</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="montage">
+            <div class="project-image">
+              <img src="images/projekt-2.jpg" alt="Beispielprojekt Montage">
+            </div>
+            <div class="project-body">
+              <h3>Montage von Bauelementen</h3>
+              <p>Montagearbeiten rund um Bauelemente wie Fenster, Türen oder andere Komponenten im Ausbau.</p>
+              <div class="project-meta">
+                <span>Bereich: Montage</span>
+                <span>Beispielprojekt</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="bau">
+            <div class="project-image">
+              <img src="images/projekt-3.jpg" alt="Beispielprojekt Bauunterstützung">
+            </div>
+            <div class="project-body">
+              <h3>Kabel- & Leerrohrvorbereitung</h3>
+              <p>Beispielhafte Leitungs- und Leerrohrverlegung als vorbereitende Leistung im Bauablauf.</p>
+              <div class="project-meta">
+                <span>Bereich: Bauunterstützung</span>
+                <span>Beispielprojekt</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="innenausbau">
+            <div class="project-image">
+              <img src="images/projekt-4.jpg" alt="Beispielprojekt Renovierung">
+            </div>
+            <div class="project-body">
+              <h3>Renovierung & Modernisierung</h3>
+              <p>Unterstützende Arbeiten bei der Erneuerung und Modernisierung von Wohn- und Nutzflächen.</p>
+              <div class="project-meta">
+                <span>Bereich: Innenausbau</span>
+                <span>Beispielprojekt</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="bau">
+            <div class="project-image">
+              <img src="images/projekt-5.jpg" alt="Beispielprojekt Erdarbeiten">
+            </div>
+            <div class="project-body">
+              <h3>Erd- und Pflasterunterstützung</h3>
+              <p>Praktische Unterstützung bei Erdarbeiten, Pflasterarbeiten und vorbereitenden Außenarbeiten.</p>
+              <div class="project-meta">
+                <span>Bereich: Bauunterstützung</span>
+                <span>Beispielprojekt</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="montage">
+            <div class="project-image">
+              <img src="images/projekt-6.jpg" alt="Beispielprojekt Ausbau">
+            </div>
+            <div class="project-body">
+              <h3>Ausbau- und Montagearbeiten</h3>
+              <p>Vielseitige Unterstützungs- und Montagearbeiten bei Umbau, Ausbau und Baufortschritt.</p>
+              <div class="project-meta">
+                <span>Bereich: Montage</span>
+                <span>Beispielprojekt</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kontakt">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>Kontakt & Anfrage</h2>
+          <p>
+            Sie möchten ein Projekt besprechen? Nutzen Sie das Formular oder schreiben Sie uns direkt per E-Mail.
+          </p>
         </div>
 
         <div class="contact-grid">
-          <div class="contact-card">
-            <h3>Direkt kontaktieren</h3>
-            <p><strong>Telefon 1:</strong> <a href="tel:+491787569046">0178 7569046</a></p>
-            <p><strong>Telefon 2:</strong> <a href="tel:+4915565035448">0155 65035448</a></p>
-            <p><strong>E-Mail:</strong> <a href="mailto:mainwerkcu@gmail.com">mainwerkcu@gmail.com</a></p>
-            <p><strong>Standort:</strong> Goldbach, Bayern</p>
+          <div class="contact-card reveal">
+            <h3>CU MainWerk</h3>
+            <p>
+              Ihr zuverlässiger Partner für Innenausbau, Montage, Bauunterstützung und vorbereitende Arbeiten
+              im Großraum Aschaffenburg.
+            </p>
+
+            <div class="info-list">
+              <div class="info-item">
+                <strong>Einsatzgebiet</strong>
+                Großraum Aschaffenburg und bis zu 50 km Umkreis, auf Anfrage auch mehr.
+              </div>
+
+              <div class="info-item">
+                <strong>E-Mail</strong>
+                <a href="mailto:mainwerkcu@gmail.com">mainwerkcu@gmail.com</a>
+              </div>
+
+              <div class="info-item">
+                <strong>Standort</strong>
+                Goldbach, Bayern
+              </div>
+            </div>
+
+            <div class="notice">
+              Telefonnummern werden aktuell nicht öffentlich auf der Website angezeigt.
+              Kontaktanfragen sind bequem per E-Mail oder Formular möglich.
+            </div>
           </div>
 
-          <div class="contact-card">
-            <h3>WhatsApp</h3>
-            <p>Für schnelle Anfragen kannst du uns direkt per WhatsApp kontaktieren.</p>
-            <p><a href="https://wa.me/4915565035448" target="_blank" rel="noopener">WhatsApp öffnen</a></p>
+          <div class="form-box reveal">
+            <h3>Anfrageformular</h3>
+            <p class="small-text">
+              Das Formular öffnet Ihr E-Mail-Programm mit den eingetragenen Informationen.
+            </p>
+
+            <form id="contactForm">
+              <div class="form-grid">
+                <div>
+                  <label for="name">Name</label>
+                  <input type="text" id="name" placeholder="Ihr Name">
+                </div>
+
+                <div>
+                  <label for="email">E-Mail</label>
+                  <input type="email" id="email" placeholder="ihre@email.de">
+                </div>
+
+                <div>
+                  <label for="bereich">Bereich</label>
+                  <select id="bereich">
+                    <option value="">Bitte wählen</option>
+                    <option>Innenausbau</option>
+                    <option>Trockenbau</option>
+                    <option>Bodenbeläge</option>
+                    <option>Fenster / Türen / Tore</option>
+                    <option>Kabel- / Leerrohrverlegung</option>
+                    <option>Renovierung / Modernisierung</option>
+                    <option>Sonstiges</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="ort">Ort des Projekts</label>
+                  <input type="text" id="ort" placeholder="z. B. Goldbach">
+                </div>
+
+                <div>
+                  <label for="nachricht">Nachricht</label>
+                  <textarea id="nachricht" placeholder="Beschreiben Sie Ihr Vorhaben"></textarea>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Anfrage vorbereiten</button>
+                <a href="mailto:mainwerkcu@gmail.com" class="btn btn-secondary">Direkt E-Mail schreiben</a>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="impressum">
+    <section class="section" id="impressum">
       <div class="container">
-        <div class="legal-box">
+        <div class="legal-box reveal">
           <h2>Impressum</h2>
 
           <p><strong>Demirel & Er GbR / CU MainWerk</strong></p>
@@ -373,7 +412,7 @@
           <p>
             Gesellschafter:<br>
             Ufuk Er<br>
-            Can Demirel
+            Zafer Can Demirel
           </p>
 
           <p>
@@ -386,7 +425,7 @@
 
           <p>
             <strong>Verantwortlich für den Inhalt:</strong><br>
-            Demirel&Er GbR
+            Zafer Can Demirel
           </p>
 
           <h3>Haftung für Inhalte</h3>
@@ -405,9 +444,9 @@
       </div>
     </section>
 
-    <section id="datenschutz">
+    <section class="section" id="datenschutz">
       <div class="container">
-        <div class="legal-box">
+        <div class="legal-box reveal">
           <h2>Datenschutz</h2>
 
           <p>
@@ -426,14 +465,14 @@
 
           <h3>Kontaktaufnahme</h3>
           <p>
-            Wenn Sie uns per E-Mail oder Telefon kontaktieren, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert.
+            Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert.
             Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
           </p>
 
           <h3>Server-Logfiles</h3>
           <p>
-            Beim Besuch dieser Website speichert der Hosting-Anbieter automatisch Informationen in sogenannten Server-Logfiles,
-            die Ihr Browser übermittelt.
+            Beim Besuch dieser Website speichert der Hosting-Anbieter automatisch Informationen
+            in sogenannten Server-Logfiles, die Ihr Browser übermittelt.
           </p>
 
           <h3>Ihre Rechte</h3>
@@ -457,5 +496,18 @@
     </div>
   </footer>
 
+  <div class="floating-actions">
+    <a class="float-btn float-mail" href="mailto:mainwerkcu@gmail.com" aria-label="E-Mail schreiben">✉</a>
+    <button class="float-btn float-top" id="scrollTopBtn" aria-label="Nach oben">↑</button>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Bild schließen">✕</button>
+      <img src="" alt="Projektbild vergrößert" id="lightboxImage">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
