@@ -90,27 +90,3 @@ if (revealElements.length > 0) {
 
   revealElements.forEach(el => revealObserver.observe(el));
 }
-
-const contactForm = document.getElementById("contactForm");
-if (contactForm) {
-  contactForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById("name")?.value.trim() || "";
-    const email = document.getElementById("email")?.value.trim() || "";
-    const bereich = document.getElementById("bereich")?.value.trim() || "";
-    const ort = document.getElementById("ort")?.value.trim() || "";
-    const nachricht = document.getElementById("nachricht")?.value.trim() || "";
-
-    const subject = encodeURIComponent("Anfrage über cu-mainwerk.de");
-    const body = encodeURIComponent(
-      "Name: " + name + "\n" +
-      "E-Mail: " + email + "\n" +
-      "Bereich: " + bereich + "\n" +
-      "Ort des Projekts: " + ort + "\n\n" +
-      "Nachricht:\n" + nachricht
-    );
-
-    window.location.href = "mailto:mainwerkcu@gmail.com?subject=" + subject + "&body=" + body;
-  });
-}
