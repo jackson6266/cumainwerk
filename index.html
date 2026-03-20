@@ -17,6 +17,80 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
+<div class="cookie-banner" id="cookieBanner" hidden>
+  <div class="cookie-banner__box">
+    <div class="cookie-banner__text">
+      <h3>Datenschutz-Einstellungen</h3>
+      <p>
+        Wir verwenden technisch notwendige Funktionen für den Betrieb der Website.
+        Optionale Inhalte wie Statistik oder externe Dienste aktivieren wir nur mit Ihrer Zustimmung.
+      </p>
+      <p class="cookie-banner__links">
+        <a href="#datenschutz">Datenschutz</a>
+        <span>•</span>
+        <button type="button" class="cookie-link-btn" id="openCookieSettings">Einstellungen</button>
+      </p>
+    </div>
+
+    <div class="cookie-banner__actions">
+      <button type="button" class="btn btn-secondary" id="cookieOnlyNecessary">
+        Nur notwendige
+      </button>
+      <button type="button" class="btn btn-primary" id="cookieAcceptAll">
+        Alle akzeptieren
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="cookie-modal" id="cookieModal" hidden>
+  <div class="cookie-modal__backdrop" id="cookieModalBackdrop"></div>
+  <div class="cookie-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+    <h3 id="cookieModalTitle">Cookie-Einstellungen</h3>
+
+    <div class="cookie-option">
+      <div>
+        <strong>Notwendig</strong>
+        <p>Erforderlich für Grundfunktionen der Website. Immer aktiv.</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" checked disabled>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="cookie-option">
+      <div>
+        <strong>Statistik</strong>
+        <p>Nur aktivieren, wenn du später Statistik-Tools einbaust.</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="cookieStats">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="cookie-option">
+      <div>
+        <strong>Externe Inhalte</strong>
+        <p>Für spätere Einbettungen wie Karten oder Videos.</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="cookieExternal">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="cookie-modal__actions">
+      <button type="button" class="btn btn-secondary" id="cookieSaveSelection">
+        Auswahl speichern
+      </button>
+      <button type="button" class="btn btn-primary" id="cookieAcceptAllModal">
+        Alle akzeptieren
+      </button>
+    </div>
+  </div>
+</div>
 <body>
 
   <header>
